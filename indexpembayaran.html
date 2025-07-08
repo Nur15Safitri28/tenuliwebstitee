@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pembayaran</title>
+  <style>
+    body, html {
+        height: 100%;
+        display: block;
+        justify-content: center;
+        background: linear-gradient(to right, #54cbd6, #2c092a);
+    }
+    body { 
+      font-family: Arial; 
+      padding: 20px;
+      color: white;
+    }
+    .selesai-btn { 
+      background-color: #54cbd6;
+      border: 2px solid #007BFF;
+      padding: 5px 10px;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      transition: 0.3s ease;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .selesai-btn:hover {
+      background-color: #007bff;
+      color: white;
+    }
+    .payment-method {
+      margin: 20px 0;
+    }
+    .payment-method label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Metode Pembayaran</h1>
+  <p>Total yang harus dibayar: <span id="totalBayar"></span></p>
+
+  <!-- Pilihan Metode Pembayaran -->
+  <div class="payment-method">
+    <h3>Pilih Metode Pembayaran:</h3>
+    <label><input type="radio" name="metode_pembayaran" value="COD"> Cash on Delivery (COD)</label>
+    <label><input type="radio" name="metode_pembayaran" value="GoPay"> GoPay</label>
+    <label><input type="radio" name="metode_pembayaran" value="DANA"> DANA</label>
+    <label><input type="radio" name="metode_pembayaran" value="ShopeePay"> ShopeePay</label>
+    <label><input type="radio" name="metode_pembayaran" value="Transfer Bank"> Transfer Bank</label>
+  </div>
+
+  <button class="selesai-btn" onclick="selesaikanPembayaran()">Bayar Sekarang</button>
+
+  <script>
+    // Ambil keranjang dari localStorage dan hitung total
+    let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+    let total = keranjang.reduce((sum, item) => sum + item.harga, 0);
+    document.getElementById("totalBayar").innerText = "Rp " + total.toLocaleString();
+
+    function selesaikanPembayaran() {
+      const metode = document.querySelector('input[name="metode_pembayaran"]:checked');
+      
+      if (!metode) {
+        alert("Silakan pilih metode pembayaran terlebih dahulu.");
+        return;
+      }
+
+      const metodePembayaran = metode.value;
+
+      // Simulasi proses pembayaran
+      alert("Pembayaran berhasil menggunakan: " + metodePembayaran);
+
+      // Kosongkan keranjang
+      localStorage.removeItem('keranjang');
+
+      // Redirect ke halaman produk
+      window.location.href = "produk.html";
+    }
+  </script>
+</body>
+</html>

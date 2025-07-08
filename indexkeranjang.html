@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Keranjang Belanja</title>
+  <style>
+      body, html {
+        height: 100%;
+        display:block;
+        justify-content: center;
+        background: linear-gradient(to right, #54cbd6, #2c092a);
+      }
+    body { 
+      font-family: Arial; 
+      padding: 20px; }
+    table { width: 100%; 
+      border-collapse: collapse; 
+      margin-bottom: 20px;
+     }
+    th, td { 
+      border: 1px solid #ccc; 
+      padding: 8px; 
+      text-align: left;
+     }
+    .bayar-btn{
+  border: 2px solid #007BFF;
+  padding: 5px 10px;
+  color:white;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: 0.3s ease;
+  cursor:pointer;
+    }
+    .bayar-btn:hover{
+      background-color: #007BFF;
+      color:white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Keranjang Anda</h1>
+  <table id="tabelKeranjang">
+    <tr><th>Produk</th><th>Harga</th></tr>
+  </table>
+
+  <p>Total: <span id="total"></span></p>
+  <a href="lunas.html" class="bayar-btn">Bayar Sekarang</a>
+
+  <script>
+    let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+    let tabel = document.getElementById("tabelKeranjang");
+    let total = 0;
+
+    keranjang.forEach(item => {
+      let row = tabel.insertRow();
+      row.insertCell(0).innerText = item.nama;
+      row.insertCell(1).innerText = "Rp " + item.harga.toLocaleString();
+      total += item.harga;
+    });
+
+    document.getElementById("total").innerText = "Rp " + total.toLocaleString();
+  </script>
+</body>
+</html>

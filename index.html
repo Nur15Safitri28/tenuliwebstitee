@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Beranda - Toko Online</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    height: 50%;
+    justify-content: center;
+    background: linear-gradient(to right, #54cbd6, #2c092a);
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+
+  .produk-container {
+    display: flex;
+    gap: 10px; 
+    flex-wrap: nowrap;
+    justify-content: flex-start; 
+    overflow-x: auto;
+    padding: 20px;
+  }
+
+  .produk {
+    min-width: 220px;
+    border: 2px solid #ccc;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+  }
+
+  .produk img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .produk h3 {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .produk p {
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .lihat-keranjang-wrapper {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .lihat-keranjang {
+    border: 2px solid #007BFF;
+    padding: 10px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s ease;
+    font-weight: 600;
+  }
+
+  .lihat-keranjang:hover {
+    background-color: #007BFF;
+    color: white;
+  }
+
+  .keranjang-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .logo-container text {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .sambutan {
+    text-align: center;
+    margin: 10px 0;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  #keranjang-container {
+    margin: 40px;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  #keranjang-container ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  #keranjang-container li {
+    margin-bottom: 10px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  #keranjang-container button {
+    margin-left: 10px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 5px;
+    background: #ff5555;
+    color: white;
+    cursor: pointer;
+  }
+
+  </style>
+</head>
+<body>
+
+  <h1>
+    <div class="logo-container">
+      <svg width="160" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="35" font-family="Poppins, sans-serif" font-size="36" fill="#ffffff" font-weight="bold">Tenuli</text>
+      </svg>
+    </div>
+
+    <div class="sambutan">Selamat datang di Toko Tenuli</div>
+
+    <div style="text-align: center;">
+      Kain tenun Sambas adalah salah satu kekayaan budaya Indonesia yang berasal dari Kabupaten Sambas, Kalimantan Barat. Kain ini dikenal dengan motif-motif yang unik dan warna-warna yang cerah, serta memiliki nilai sejarah dan budaya yang tinggi.
+    </div>
+  </h1>
+
+  <h1 style="text-align: center;">Produk Kami</h1>
+
+  <div class="produk-container">
+    <div class="produk">
+      <h3>Flora Geometris</h3>
+      <img src="flora geometris.jpg" alt="produk 1">
+      <p>Rp 85.000</p>
+      <button class="keranjang-btn" onclick="tambahKeranjang('Flora Geometris', 85000)">Masukkan ke Keranjang</button>
+    </div>
+
+    <div class="produk">
+      <h3>Kotak Ceremai</h3>
+      <img src="kotak ceremai.jpg" alt="produk 2">
+      <p>Rp 125.000</p>
+      <button class="keranjang-btn" onclick="tambahKeranjang('Kotak Ceremai', 125000)">Masukkan ke Keranjang</button>
+    </div>
+
+    <div class="produk">
+      <h3>Bunga Terong</h3>
+      <img src="bunga terong.jpg" alt="produk 3">
+      <p>Rp 100.000</p>
+      <button class="keranjang-btn" onclick="tambahKeranjang('Bunga Terong', 100000)">Masukkan ke Keranjang</button>
+    </div>
+
+    <div class="produk">
+      <h3>Pucuk Rebung Bertemu</h3>
+      <img src="pucuk rebung bertemu.jpg" alt="produk 4">
+      <p>Rp 250.000</p>
+      <button class="keranjang-btn" onclick="tambahKeranjang('Pucuk Rebung Bertemu', 250000)">Masukkan ke Keranjang</button>
+    </div>
+
+    <div class="produk">
+      <h3>Pucuk Tumpal Bertemu</h3>
+      <img src="tumpal bertemu.jpg" alt="produk 5">
+      <p>Rp 300.000</p>
+      <button class="keranjang-btn" onclick="tambahKeranjang('Pucuk Tumpal Bertemu', 300000)">Masukkan ke Keranjang</button>
+    </div>
+  </div>
+
+  <div class="lihat-keranjang-wrapper">
+    <a href="C:\hari.html\keranjang.html" class="lihat-keranjang">Lihat Keranjang</a>
+  </div>
+
+  <!-- Tambahan: Menampilkan isi keranjang -->
+  <div id="keranjang-container">
+    <h2>Isi Keranjang Anda</h2>
+    <ul id="daftar-keranjang"></ul>
+  </div>
+
+  <script>
+    function tambahKeranjang(nama, harga) {
+      let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+      keranjang.push({ nama, harga });
+      localStorage.setItem('keranjang', JSON.stringify(keranjang));
+      alert(nama + " ditambahkan ke keranjang!");
+      tampilkanKeranjang();
+    }
+
+    function tampilkanKeranjang() {
+      const keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+      const daftarKeranjang = document.getElementById('daftar-keranjang');
+      daftarKeranjang.innerHTML = '';
+
+      if (keranjang.length === 0) {
+        daftarKeranjang.innerHTML = '<li>Keranjang masih kosong.</li>';
+        return;
+      }
+
+      keranjang.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.nama} - Rp ${item.harga.toLocaleString()} <button onclick="hapusItem(${index})">Hapus</button>`;
+        daftarKeranjang.appendChild(li);
+      });
+    }
+
+    function hapusItem(index) {
+      let keranjang = JSON.parse(localStorage.getItem('keranjang')) || [];
+      keranjang.splice(index, 1);
+      localStorage.setItem('keranjang', JSON.stringify(keranjang));
+      tampilkanKeranjang();
+    }
+
+    window.onload = tampilkanKeranjang;
+  </script>
+</body>
+</html>
